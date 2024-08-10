@@ -142,7 +142,6 @@ tell application "Finder"
 			
 			if isObjColX and isObjColY then
 			-- Move the object to the ball folder
-			tell application "Finder"
 			    set ballFolderPath to (path to desktop folder as text) & BALL_NAME & ":"
 
 			    if exists file objName of desktop then
@@ -176,8 +175,6 @@ tell application "Finder"
 			        move folder objName of desktop to folder ballFolderPath
 					set curObjRemaining to curObjRemaining - 1
 			    end if
-			end tell
-
 			end if
 		end repeat
 		
