@@ -20,7 +20,7 @@ set SCREEN_HEIGHT to LAPTOP_HEIGHT
 -- Game config
 set DEFAULT_STEP_SIZE to 10
 set DELAY_TIME to 0.01
-set HIT_SPEED_MULT to 1.075
+set HIT_SPEED_MULT to 1.05
 set MAKE_OBJECTS to true
 set OBJ_PER_LEVEL to 10
 
