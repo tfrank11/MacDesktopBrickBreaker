@@ -47,19 +47,20 @@ set paddle2 to getFolder(PADDLE_2_NAME)
 set paddle3 to getFolder(PADDLE_3_NAME)
 set ball to getFolder(BALL_NAME)
 
--- Fetch all files/folders on the desktop
-if not MAKE_OBJECTS then
-	tell application "Finder"
+
+tell application "Finder"
+-- If not in MAKE_OBJECTS mode, get desktop items and their coords now
+	global desktopItems
+	set desktopItems to {}
+	if not MAKE_OBJECTS then
 		repeat with anItem in desktop
-		    set itemInfo to {position: desktop position of anItem, name: name of anItem}
+			set itemInfo to {position: desktop position of anItem, name: name of anItem}
 			if not name of anItem is PADDLE_1_NAME and not name of anItem is PADDLE_2_NAME and not name of anItem is PADDLE_3_NAME and not name of anItem is BALL_NAME then
 				set end of desktopItems to itemInfo
 			end if 
-	    end repeat
-	end tell
-end if 
+		end repeat
+	end if 
 
-tell application "Finder"
 	-- ball coords
 	set x to SCREEN_WIDTH / 2
     set y to SCREEN_HEIGHT - 100
@@ -89,10 +90,10 @@ tell application "Finder"
 			-- get desktop items and their coords
 			set desktopItems to {}
 			repeat with anItem in desktop
-		    set itemInfo to {position: desktop position of anItem, name: name of anItem}
-			if not name of anItem is PADDLE_1_NAME and not name of anItem is PADDLE_2_NAME and not name of anItem is PADDLE_3_NAME and not name of anItem is BALL_NAME then
-				set end of desktopItems to itemInfo
-			end if 
+		    	set itemInfo to {position: desktop position of anItem, name: name of anItem}
+				if not name of anItem is PADDLE_1_NAME and not name of anItem is PADDLE_2_NAME and not name of anItem is PADDLE_3_NAME and not name of anItem is BALL_NAME then
+					set end of desktopItems to itemInfo
+				end if 
 	    	end repeat
 		end if
 
