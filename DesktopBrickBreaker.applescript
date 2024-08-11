@@ -75,15 +75,16 @@ tell application "Finder"
     		set y to SCREEN_HEIGHT - 100
 			repeat with i from 1 to curLevel
 			    repeat with j from 1 to OBJ_PER_LEVEL
-        			set folderName to (i as text) & "," & (j as text)
-					set folderPath to (path to desktop folder as text) & folderName
-					if not exists folder folderPath then
-            			set newFolder to make new folder at (path to desktop folder) with properties {name: folderName}
+        			set fileName to (i as text) & "," & (j as text)
+					set filePath to (path to desktop folder as text) & fileName
+					if not (exists file filePath) then
+						do shell script "touch ~/Desktop/" & fileName
+						do shell script "chmod +x ~/Desktop/" & fileName
 					end if
-            		set newFolder to folder folderPath
+            		set newFile to file filePath
 					set objX to j * (SCREEN_WIDTH/OBJ_PER_LEVEL) - 100
 					set objY to i * (SCREEN_HEIGHT / 6)
-            		set desktop position of newFolder to {objX, objY}
+            		set desktop position of newFile to {objX, objY}
     			end repeat
 			end repeat
 			set curObjRemaining to (curLevel * OBJ_PER_LEVEL)
