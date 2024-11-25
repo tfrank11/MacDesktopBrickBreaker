@@ -13,4 +13,8 @@ Name should be pretty self-explanatory.
    set SCREEN_HEIGHT to <height>
   ```
 
-- Run this file in Script Editor
+- Run the following
+
+  ```
+  $ osascript DesktopBrickBreaker.applescript
+  ```
