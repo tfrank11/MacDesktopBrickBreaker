@@ -15,6 +15,6 @@ Name should be pretty self-explanatory.
 
 - Run the following
 
-  ```
+  ```console
   $ osascript DesktopBrickBreaker.applescript
   ```
